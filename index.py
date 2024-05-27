@@ -101,7 +101,7 @@ class SpellinBeeGame:
         else:
             return "Beginner"
 
-game = SpellinBeeGame()
+game = None
 
 @app.route('/')
 def index():
