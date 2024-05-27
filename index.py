@@ -9,6 +9,9 @@ consonants = ''.join(set(string.ascii_lowercase) - set(vowels))
 
 class SpellinBeeGame:
     def __init__(self):
+        self.reset_game()
+
+    def reset_game(self):
         self.center_letter = ''
         self.outer_letters = []
         self.player_scores = {}
@@ -101,7 +104,7 @@ class SpellinBeeGame:
         else:
             return "Beginner"
 
-game = None
+game = SpellinBeeGame()
 
 @app.route('/')
 def index():
@@ -123,7 +126,7 @@ def register_players():
     if player1_name and player2_name:
         # Resets the game. TODO: Should really track unique instance of game per client 
         #                        Else every time a new game is started it will kill state of old. So no more than 2 people can play at once
-        game = SpellinBeeGame()
+        game.reset_game()
         success1 = game.register_player(player1_name)
         success2 = game.register_player(player2_name)
         if success1 and success2:
