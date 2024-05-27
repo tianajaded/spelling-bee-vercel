@@ -15,25 +15,25 @@ function registerPlayers() {
         },
         body: JSON.stringify(data)
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.msg) {
-            var centerLetter = data.letters.center;
-            var outerLetters = data.letters.outer;
-            document.getElementById("center").innerText = centerLetter;
-            for (var i = 0; i < outerLetters.length; i++) {
-                document.getElementById("outer" + (i + 1)).innerText = outerLetters[i];
+        .then(response => response.json())
+        .then(data => {
+            if (data.msg) {
+                var centerLetter = data.letters.center;
+                var outerLetters = data.letters.outer;
+                document.getElementById("center").innerText = centerLetter;
+                for (var i = 0; i < outerLetters.length; i++) {
+                    document.getElementById("outer" + (i + 1)).innerText = outerLetters[i];
+                }
+                document.getElementById("potentialWords").innerText = `Potential Words: ${data.potential_words}`;
+                document.getElementById("game").style.display = "block";
+            } else if (data.error) {
+                alert(data.error);
             }
-            document.getElementById("potentialWords").innerText = `Potential Words: ${data.potential_words}`;
-            document.getElementById("game").style.display = "block";
-        } else if (data.error) {
-            alert(data.error);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert("A silly error occurred. Please try again.");
-    });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("A silly error occurred. Please try again.");
+        });
 }
 
 
@@ -54,27 +54,27 @@ function initialTurn() {
         },
         body: JSON.stringify(data)
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to start turn.');
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.msg) {
-            messageElement.innerText = data.msg;
-            document.getElementById("game").style.display = "block";
-            updateScores(data.scores);
-            updateRank(data.ranks);
-        } else {
-            throw new Error(data.error);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        messageElement.innerText = "A nasty error occurred. Please try again.";
-        alert(error.message); 
-    });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to start turn.');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.msg) {
+                messageElement.innerText = data.msg;
+                document.getElementById("game").style.display = "block";
+                updateScores(data.scores);
+                updateRank(data.ranks);
+            } else {
+                throw new Error(data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            messageElement.innerText = "A nasty error occurred. Please try again.";
+            alert(error.message);
+        });
 }
 
 function updateHoneycomb(letters) {
@@ -103,23 +103,23 @@ function submitWord() {
         },
         body: JSON.stringify(data)
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.msg) {
-            messageElement.innerText = data.msg;
-            updateScores(data.scores);
-        } else if (data.error) {
-            messageElement.innerText = data.error;
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        messageElement.innerText = "A goofy error occurred. Please try again.";
-    });
+        .then(response => response.json())
+        .then(data => {
+            if (data.msg) {
+                messageElement.innerText = data.msg;
+                updateScores(data.scores);
+            } else if (data.error) {
+                messageElement.innerText = data.error;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            messageElement.innerText = "A goofy error occurred. Please try again.";
+        });
 }
 
 function updateScores(scores) {
-    console.log("Received scores:", scores);  
+    console.log("Received scores:", scores);
     if (scores.player1) {
         document.getElementById("player1Score").innerText = `${scores.player1.name}: ${scores.player1.score} points`;
         document.getElementById("player1Rank").innerText = `Rank: ${scores.player1.rank}`;
@@ -133,7 +133,7 @@ function updateScores(scores) {
 
 
 function updateScores(scores) {
-    console.log("Received scores:", scores);  
+    console.log("Received scores:", scores);
     if (scores.player1) {
         document.getElementById("player1Score").innerText = `${scores.player1.name}: ${scores.player1.score} points`;
         document.getElementById("player1Rank").innerText = `Player 1 Rank: ${scores.player1.rank}`;

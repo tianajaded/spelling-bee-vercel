@@ -5,16 +5,24 @@ body {
     background-color: #ffe6ff;
     color: #ff69b4;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
+    height: 100vh;
 }
 
 .container {
-    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* max-width: 900px; */
     margin: 0 auto;
-    padding: 200px;
+    /* padding: 200px; */
     border-radius: 20px;
     background-color: #ffb3d9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    min-height: 600px;
+    /* min-height: 600px; */
 }
 
 h1 {
@@ -24,14 +32,16 @@ h1 {
 
 input[type="text"],
 button {
+    width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
     border: none;
+    align-self: center;
 }
 
 input[type="text"] {
-    width: 60%;
+    width: 100%;
 }
 
 button {
@@ -52,7 +62,7 @@ button:hover {
     margin: 20px auto 0;
     position: relative;
     width: 260px;
-    
+    padding-top: 400px;
 }
 
 .hex {
@@ -72,6 +82,12 @@ button:hover {
     background-color: #ff1493;
     top: 90px;
     left: 92.5px;
+}
+
+#registration {
+    display: flex;
+    flex-direction: column;
+
 }
 
 #outer1 {
