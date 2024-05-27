@@ -121,6 +121,9 @@ def register_players():
     player1_name = data.get('player1')
     player2_name = data.get('player2')
     if player1_name and player2_name:
+        # Resets the game. TODO: Should really track unique instance of game per client 
+        #                        Else every time a new game is started it will kill state of old. So no more than 2 people can play at once
+        game = SpellinBeeGame()
         success1 = game.register_player(player1_name)
         success2 = game.register_player(player2_name)
         if success1 and success2:
