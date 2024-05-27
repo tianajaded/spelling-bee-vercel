@@ -1,0 +1,105 @@
+/* static/spellinbee.css */
+
+body {
+    font-family: 'Luckiest Guy', cursive, sans-serif;
+    background-color: #ffe6ff;
+    color: #ff69b4;
+    text-align: center;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 200px;
+    border-radius: 20px;
+    background-color: #ffb3d9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-height: 600px;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+button {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+input[type="text"] {
+    width: 60%;
+}
+
+button {
+    background-color: #ff1493;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff69b4;
+}
+
+.honeycomb {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px auto 0;
+    position: relative;
+    width: 260px;
+    
+}
+
+.hex {
+    width: 90px;
+    height: 90px;
+    background-color: #ff69b4;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 44%, 75% 86%, 25% 86%, 0% 44%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    position: absolute;
+}
+
+.center {
+    background-color: #ff1493;
+    top: 90px;
+    left: 92.5px;
+}
+
+#outer1 {
+    top: 0;
+    left: 92.5px;
+}
+
+#outer2 {
+    top: 43.75px;
+    left: 0;
+}
+
+#outer3 {
+    top: 43.75px;
+    left: 185px;
+}
+
+#outer4 {
+    top: 131.25px;
+    left: 0;
+}
+
+#outer5 {
+    top: 131.25px;
+    left: 185px;
+}
+
+#outer6 {
+    top: 175px;
+    left: 92.5px;
+}

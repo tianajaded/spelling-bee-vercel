@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <title>Spelling Bee</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='spellinbee.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to the Spelling Bee!</h1>
+        <div id="registration">
+            <input type="text" id="player1Name" placeholder="Enter Player 1 name">
+            <input type="text" id="player2Name" placeholder="Enter Player 2 name">
+            <button onclick="registerPlayers()">Join the Fun!</button>
+        </div>
+        <div id="game" style="display: none;">
+            <input type="text" id="currentPlayerName" placeholder="Enter your name">
+            <input type="text" id="wordInput" placeholder="Enter a word">
+            <button onclick="submitWord()">Submit</button>
+            <p id="message"></p>
+            <p id="potentialWords"></p>
+            <p id="player1Score"></p>
+            <p id="player2Score"></p>
+            <p id="player1Rank"></p>
+            <p id="player2Rank"></p>
+            <div class="honeycomb">
+                <div class="hex" id="outer1"></div>
+                <div class="hex" id="outer2"></div>
+                <div class="hex" id="outer3"></div>
+                <div class="hex center" id="center"></div>
+                <div class="hex" id="outer4"></div>
+                <div class="hex" id="outer5"></div>
+                <div class="hex" id="outer6"></div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='spellinbee.js') }}"></script>
+</body>
+
+</html>
